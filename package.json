@@ -1,0 +1,53 @@
+{
+	"name": "farming-alpha-bot",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Sarat Angajala",
+	"license": "MIT",
+	"scripts": {
+		"test": "jest --verbose",
+		"test:coverage": "yarn clean && yarn test --coverage && open ./coverage/lcov-report/index.html",
+		"format": "prettier 'src/**/*.{test.ts,ts,json}' --write",
+		"setup-local": "sh ./scripts/local.sh",
+		"lint": "eslint 'src/**/*.{test.ts,ts}'",
+		"dev": "nodemon ./src",
+		"clean": "rimraf dist & rimraf coverage",
+		"build": "yarn clean && tsc",
+		"start": "yarn build && node dist",
+		"prepare": "husky install",
+		"postinstall": "husky install",
+		"prepack": "pinst --disable",
+		"postpack": "pinst --enable"
+	},
+	"devDependencies": {
+		"@types/jest": "^29.5.3",
+		"@types/lodash": "^4.14.195",
+		"@types/node": "^20.4.2",
+		"@typescript-eslint/eslint-plugin": "latest",
+		"@typescript-eslint/parser": "^6.2.0",
+		"eslint": "^8.13.0",
+		"eslint-config-semistandard": "^17.0.0",
+		"eslint-config-standard": "^17.0.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-n": "^15.0.0",
+		"eslint-plugin-promise": "^6.0.0",
+		"ganache": "^7.9.0",
+		"husky": "^8.0.0",
+		"jest": "^29.6.1",
+		"nodemon": "^3.0.1",
+		"pinst": "^3.0.0",
+		"prettier": "^3.0.0",
+		"rimraf": "^5.0.1",
+		"ts-jest": "^29.1.1",
+		"typescript": "^5.1.6"
+	},
+	"dependencies": {
+		"axios": "^1.4.0",
+		"dotenv": "^16.3.1",
+		"ethers": "^5.0.0",
+		"grammy": "^1.17.2",
+		"lodash": "^4.17.21",
+		"mongoose": "^7.4.0"
+	},
+	"packageManager": "yarn@3.6.1"
+}
